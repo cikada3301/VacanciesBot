@@ -1,0 +1,4 @@
+package com.example.vacanciesbot.dto.request.api;
+
+public interface IFilter {
+}

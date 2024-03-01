@@ -1,0 +1,33 @@
+version: '3.5'
+
+networks:
+  hhnet:
+    name: hh_net
+    driver: bridge
+
+services:
+  vacancies_bot_tg:
+    container_name: VacanciesBot
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+      args:
+        SERVICE_PATH: "./"
+    environment:
+      POSTGRES_ADDRESS:  "postgres:5432/hhbotdb"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+      BOT_NAME: "Relevant vacancies"
+      BOT_TOKEN: "6928616755:AAFinbS1VfEGCuDb3j-pslkvFf-qzUapxr8"
+      CLIENT_ID: "MOG8EK3DGO6AN6BRL3S3QT8E5EO89K85EJMVBAAAHKQ74CRIHFEFVFJMDES995M5"
+      SECRET_ID: "KDCKRENVTM3NT9RDHTA1O34KBFC25QSJQBR2VH9IT798S82TKU1LHA0AFLQ4PVFU"
+      ORGANISATION_ID: "9113528"
+      REDIRECT_URI: ""
+    restart: unless-stopped
+    links:
+      - postgres
+    ports:
+      - "8082:8082"
+    networks:
+      - hhnet
+

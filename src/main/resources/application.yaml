@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${POSTGRES_ADDRESS:localhost:5432/hhbotdb}
+    username: ${POSTGRES_USER:postgres}
+    password: ${POSTGRES_PASSWORD:postgres}
+
+    jpa:
+      show-sql: true
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.PostgreSQLDialect
+          format_sql: true
+      hibernate:
+        ddl-auto: update
+
+bot:
+  name: ${BOT_NAME:"Relevant vacancies"}
+  token: ${BOT_TOKEN:"6928616755:AAFinbS1VfEGCuDb3j-pslkvFf-qzUapxr8"}
+
+web:
+  address: "https://hh.ru"
+  redirectUri: ${REDIRECT_URI:""}
+  api:
+    baseaddress: "https://api.hh.ru"
+
+hh:
+  clientId: ${CLIENT_ID:"MOG8EK3DGO6AN6BRL3S3QT8E5EO89K85EJMVBAAAHKQ74CRIHFEFVFJMDES995M5"}
+  secret: ${SECRET_ID:"KDCKRENVTM3NT9RDHTA1O34KBFC25QSJQBR2VH9IT798S82TKU1LHA0AFLQ4PVFU"}
+
+organisationId: ${ORGANISATION_ID:"9113528"}
